@@ -1,25 +1,40 @@
-import logo from "./logo.svg";
 import "./App.css";
+import FlipCard from "./Components/FlipCard/flipCard";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles.scss";
 
-function App() {
+const cards = [
+  {
+    id: "1",
+    variant: "hover",
+    front: "Hover",
+    back: "Back",
+  },
+  {
+    id: "2",
+    variant: "click",
+    front: "Click",
+    back: "Back",
+  },
+  {
+    id: "3",
+    variant: "focus",
+    front: "Focus",
+    back: "Back",
+  },
+];
+
+export function App() {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      <div className='row h-100'>
+        <div class='col d-flex flex-column flex-md-row justify-content-around align-items-center'>
+          {cards.map((card) => (
+            <FlipCard key={card.id} card={card} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
