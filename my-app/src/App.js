@@ -1,5 +1,6 @@
 import "./App.css";
 import FlipCard from "./Components/FlipCard/flipCard";
+import { Row, Container } from "./styled-components";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles.scss";
@@ -7,35 +8,50 @@ import "./styles.scss";
 const cards = [
   {
     id: "1",
-    variant: "hover",
-    front: "Hover",
+    front: "noodles",
     back: "Back",
   },
   {
     id: "2",
-    variant: "click",
-    front: "Click",
+    front: "rice",
     back: "Back",
   },
   {
     id: "3",
-    variant: "focus",
-    front: "Focus",
+    front: "soup",
+    back: "Back",
+  },
+  {
+    id: "3",
+    front: "soup",
+    back: "Back",
+  },
+  {
+    id: "3",
+    front: "soup",
+    back: "Back",
+  },
+  {
+    id: "3",
+    front: "soup",
+    back: "Back",
+  },
+  {
+    id: "3",
+    front: "soup",
     back: "Back",
   },
 ];
 
 export function App() {
   return (
-    <div className='container'>
-      <div className='row h-100'>
-        <div class='col d-flex flex-column flex-md-row justify-content-around align-items-center'>
-          {cards.map((card) => (
-            <FlipCard key={card.id} card={card} />
-          ))}
-        </div>
-      </div>
-    </div>
+    <Container>
+      <Row>
+        {cards.map((card) => (
+          <FlipCard key={card.id} card={card} />
+        ))}
+      </Row>
+    </Container>
   );
 }
 

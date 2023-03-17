@@ -1,13 +1,12 @@
 import { useState } from "react";
 import cn from "classnames";
+import { Container } from "./styled-components";
 
 function FlipCard({ card }) {
   const [showBack, setShowBack] = useState(false);
 
   function handleClick() {
-    if (card.variant === "click") {
-      setShowBack(!showBack);
-    }
+    setShowBack(!showBack);
   }
 
   return (
