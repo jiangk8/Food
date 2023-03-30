@@ -8,37 +8,37 @@ import "./styles.scss";
 const cards = [
   {
     id: "1",
-    front: "noodles",
-    back: "Back",
+    title: "lamb noodles",
+    back: "lamb, noodles, cumin, cilantro",
   },
   {
     id: "2",
-    front: "rice",
+    title: "rice",
     back: "Back",
   },
   {
     id: "3",
-    front: "soup",
+    title: "soup",
     back: "Back",
   },
   {
     id: "3",
-    front: "soup",
+    title: "soup",
     back: "Back",
   },
   {
     id: "3",
-    front: "soup",
+    title: "soup",
     back: "Back",
   },
   {
     id: "3",
-    front: "soup",
+    title: "soup",
     back: "Back",
   },
   {
     id: "3",
-    front: "soup",
+    title: "soup",
     back: "Back",
   },
 ];
