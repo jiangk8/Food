@@ -23,7 +23,7 @@ function FlipCard({ card }) {
         </div>
         <div className='card back'>
           <div className='card-body d-flex justify-content-center align-items-center'>
-            <p className='card-text fs-1 fw-bold'>{card.back}</p>
+            <p className='card-text fs-1 fw-bold'></p>
           </div>
         </div>
       </div>
