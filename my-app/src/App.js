@@ -1,9 +1,10 @@
 import "./App.css";
 import FlipCard from "./Components/FlipCard/flipCard";
-import { Row, Container } from "./styled-components";
+import { Row, Container, Button } from "./styled-components";
 import { GraphQLClient, gql, request } from "graphql-request";
 import { useQuery } from "react-query";
 
+import { PlusButton } from "./Components/PlusButton/PlusButton";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles.scss";
 
@@ -71,6 +72,7 @@ export function App() {
 
   return (
     <Container>
+      <PlusButton />
       <Row>
         {/* {cards.map((cards) => (
           <FlipCard key={cards.id} card={cards} />

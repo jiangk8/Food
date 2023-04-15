@@ -9,14 +9,14 @@ const graphQLClient = new GraphQLClient(API_URL);
 export function useGetPosts() {
   return useQuery("get-posts", async () => {
     const { getPostList } = await graphQLClient.request(gql`
-      query {
-        getPostList {
-          items {
-            _id
-            title
-            description
-            content
+      {
+        posts {
+          id
+          title
+          notes {
+            html
           }
+          ingredients
         }
       }
     `);

@@ -10,3 +10,5 @@ export const Row = styled.div`
   grid-auto-rows: auto;
   justify-items: center;
 `;
+
+export const Button = styled.button``;
