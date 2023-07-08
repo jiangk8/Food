@@ -11,4 +11,8 @@ export const Row = styled.div`
   justify-items: center;
 `;
 
-export const Button = styled.button``;
+export const Header = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 6vh 0vh 3vh;
+`;

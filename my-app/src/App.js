@@ -1,10 +1,10 @@
 import "./App.css";
 import FlipCard from "./Components/FlipCard/flipCard";
-import { Row, Container, Button } from "./styled-components";
+import { Row, Container, Header } from "./styled-components";
 import { GraphQLClient, gql, request } from "graphql-request";
 import { useQuery } from "react-query";
 
-import { PlusButton } from "./Components/PlusButton/PlusButton";
+import PlusButton from "./Components/PlusButton/PlusButton";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles.scss";
 
@@ -28,7 +28,8 @@ const QUERY = gql`
 //   {
 //     id: "1",
 //     title: "lamb noodles",
-//     back: "lamb, noodles, cumin, cilantro",
+//     ingradients: "lamb, noodles, cumin, cilantro",
+//     notes: asdf asdf asdf asdfa sdf
 //   },
 //   {
 //     id: "2",
@@ -72,7 +73,9 @@ export function App() {
 
   return (
     <Container>
-      <PlusButton />
+      <Header>
+        <PlusButton />
+      </Header>
       <Row>
         {/* {cards.map((cards) => (
           <FlipCard key={cards.id} card={cards} />
