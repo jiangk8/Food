@@ -1,6 +1,7 @@
 import { useState } from "react";
 import cn from "classnames";
 import {} from "./styled-components";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function FlipCard({ card }) {
   const [showBack, setShowBack] = useState(false);
@@ -8,6 +9,9 @@ function FlipCard({ card }) {
   function handleClick() {
     setShowBack(!showBack);
   }
+
+  let ingredients = card.ingredients.join("\r\n");
+  console.log(ingredients);
 
   return (
     <div className='flip-card-outer' onClick={handleClick}>
@@ -22,8 +26,8 @@ function FlipCard({ card }) {
           </div>
         </div>
         <div className='card back'>
-          <div className='card-body d-flex justify-content-center align-items-center'>
-            <p className='card-text fs-1 fw-bold'></p>
+          <div className='card-body d-flex justify-content-left '>
+            <p className='card-text fs-4 '>{ingredients}</p>
           </div>
         </div>
       </div>
