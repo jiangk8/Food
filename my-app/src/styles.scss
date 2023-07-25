@@ -10,11 +10,6 @@ body {
   height: 400px;
   margin: 25px 0;
 
-  &.focus-trigger:focus {
-    outline: 5px solid greenyellow;
-    outline-offset: 5px;
-  }
-
   .flip-card-inner {
     transform-style: preserve-3d;
     transition: .5s linear .1s;
@@ -22,9 +17,6 @@ body {
     width: inherit;
     height: inherit;
 
-    &.hover-trigger:hover {
-      transform: rotateY(180deg);
-    }
 
     &.showBack {
       transform: rotateY(180deg);
@@ -40,14 +32,14 @@ body {
   
       &.front {
         transform: rotateY(0);
-        background-color: #2d2d2d;
+        background-color: #454545;
         color: #fff;
       }
   
       &.back {
         transform: rotateY(180deg);
-        background-color: #fff;
-        color: #2d2d2d;
+        background-color: #9cb5a0;
+        color: #fefdfd;
         overflow-y: auto;
         white-space: pre-line;
       }
@@ -68,7 +60,7 @@ body {
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888; 
+  background: #666666; 
 }
 
 /* Handle on hover */

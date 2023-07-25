@@ -17,7 +17,7 @@ const QUERY = gql`
       id
       title
       notes {
-        html
+        text
       }
       ingredients
     }

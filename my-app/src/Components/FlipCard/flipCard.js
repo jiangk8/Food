@@ -5,13 +5,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function FlipCard({ card }) {
   const [showBack, setShowBack] = useState(false);
+  let ingredients = card.ingredients.join("\r\n");
+  let notes = card.notes["text"];
 
   function handleClick() {
     setShowBack(!showBack);
   }
 
-  let ingredients = card.ingredients.join("\r\n");
-  console.log(ingredients);
+  console.log(notes);
 
   return (
     <div className='flip-card-outer' onClick={handleClick}>
@@ -26,8 +27,9 @@ function FlipCard({ card }) {
           </div>
         </div>
         <div className='card back'>
-          <div className='card-body d-flex justify-content-left '>
+          <div className='card-body d-flex flex-column justify-content-left '>
             <p className='card-text fs-4 '>{ingredients}</p>
+            <p className='card-text fs-5 '>{notes}</p>
           </div>
         </div>
       </div>
