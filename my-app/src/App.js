@@ -8,6 +8,8 @@ import PlusButton from "./Components/PlusButton/PlusButton";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles.scss";
 
+import { FormThemeProvider } from "react-form-component";
+
 const API_URL =
   "https://api-us-west-2.hygraph.com/v2/clbvxfsuy42y401usdso05d8l/master";
 
@@ -74,7 +76,9 @@ export function App() {
   return (
     <Container>
       <Header>
-        <PlusButton />
+        <FormThemeProvider>
+          <PlusButton />
+        </FormThemeProvider>
       </Header>
       <Row>
         {/* {cards.map((cards) => (
