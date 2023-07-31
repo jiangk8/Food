@@ -4,7 +4,7 @@ import { Row, Container, Header } from "./styled-components";
 import { GraphQLClient, gql, request } from "graphql-request";
 import { useQuery } from "react-query";
 
-import PlusButton from "./Components/PlusButton/PlusButton";
+import AddRecipe from "./Components/AddRecipe/AddRecipe";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles.scss";
 
@@ -77,7 +77,7 @@ export function App() {
     <Container>
       <Header>
         <FormThemeProvider>
-          <PlusButton />
+          <AddRecipe />
         </FormThemeProvider>
       </Header>
       <Row>

@@ -9,9 +9,9 @@ import {
   StyledContent,
   StyledClose,
 } from "./styled-components";
-import AddPost from "../AddPost/AddPost";
+import FormPost from "../FormPost/FormPost";
 
-function PlusButton() {
+function AddRecipe() {
   return (
     <StyledPopup
       trigger={<StyledButton> Add Recipe </StyledButton>}
@@ -22,7 +22,7 @@ function PlusButton() {
         <StyledModal>
           <StyledHeader> New Recipe </StyledHeader>
           <StyledContent>
-            <AddPost></AddPost>
+            <FormPost></FormPost>
           </StyledContent>
         </StyledModal>
       )}
@@ -30,4 +30,4 @@ function PlusButton() {
   );
 }
 
-export default PlusButton;
+export default AddRecipe;

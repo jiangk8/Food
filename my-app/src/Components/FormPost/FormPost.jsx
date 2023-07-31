@@ -7,7 +7,7 @@ import Form, {
 } from "react-form-component";
 import { CancelButton } from "./styled-components";
 
-function AddPost() {
+function FormPost() {
   return (
     <Form
       fields={["title", "ingredients", "notes"]}
@@ -30,4 +30,4 @@ function AddPost() {
   );
 }
 
-export default AddPost;
+export default FormPost;
