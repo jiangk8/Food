@@ -5,6 +5,8 @@ import { GraphQLClient, gql, request } from "graphql-request";
 import { useQuery } from "react-query";
 
 import AddRecipe from "./Components/AddRecipe/AddRecipe";
+import SearchBar from "./Components/SearchBar/SearchBar";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles.scss";
 
@@ -15,12 +17,10 @@ const API_URL =
 
 const QUERY = gql`
   {
-    posts {
+    recipes {
       id
       title
-      notes {
-        text
-      }
+      notes
       ingredients
     }
   }
@@ -66,16 +66,18 @@ const QUERY = gql`
 // ];
 
 export function App() {
-  const { data, isLoading, error } = useQuery("posts", () => {
+  const { data, isLoading, error } = useQuery("recipes", () => {
     return request(API_URL, QUERY);
   });
 
   if (error) return <h1>Something went wrong!</h1>;
   if (isLoading) return <h1>Loading...</h1>;
 
+  console.log(data, "data");
   return (
     <Container>
       <Header>
+        <SearchBar />
         <FormThemeProvider>
           <AddRecipe />
         </FormThemeProvider>
@@ -84,8 +86,8 @@ export function App() {
         {/* {cards.map((cards) => (
           <FlipCard key={cards.id} card={cards} />
         ))} */}
-        {data.posts.map((post) => (
-          <FlipCard key={post.id} card={post} />
+        {data.recipes.map((recipe) => (
+          <FlipCard key={recipe.id} card={recipe} />
         ))}
       </Row>
     </Container>

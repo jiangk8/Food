@@ -13,6 +13,7 @@ export const Row = styled.div`
 
 export const Header = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin: 6vh 0vh 3vh;
 `;

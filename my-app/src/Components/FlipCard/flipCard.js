@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function FlipCard({ card }) {
   const [showBack, setShowBack] = useState(false);
   let ingredients = card.ingredients.join("\r\n");
-  let notes = card.notes["text"];
+  let notes = card.notes;
 
   function handleClick() {
     setShowBack(!showBack);

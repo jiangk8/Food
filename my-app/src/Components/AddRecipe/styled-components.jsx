@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Popup from "reactjs-popup";
 
 export const StyledButton = styled.button`
+  width: 100px;
   background-color: white;
   border-radius: 4px;
   &:hover {

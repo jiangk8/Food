@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Popup from "reactjs-popup";
 
 import {
@@ -22,7 +22,7 @@ function AddRecipe() {
         <StyledModal>
           <StyledHeader> New Recipe </StyledHeader>
           <StyledContent>
-            <FormPost></FormPost>
+            <FormPost closeForm={close} />
           </StyledContent>
         </StyledModal>
       )}
