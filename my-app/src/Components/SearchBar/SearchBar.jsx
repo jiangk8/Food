@@ -16,7 +16,7 @@ function SearchBar() {
         type='text'
         id='message'
         name='message'
-        placeholder='search...'
+        placeholder='  search...'
         onKeyDown={handleKeyDown}
       />
     </StyledSearchBar>
@@ -24,3 +24,14 @@ function SearchBar() {
 }
 
 export default SearchBar;
+
+// query recipe {
+//   recipes(
+//     where: {ingredients_contains_some: ["ginger", "lamb"]}
+//     orderBy: title_ASC
+//   ) {
+//     ingredients
+//     notes
+//     title
+//   }
+// }

@@ -11,7 +11,7 @@ import {
 } from "./styled-components";
 import FormPost from "../FormPost/FormPost";
 
-function AddRecipe() {
+function AddRecipe(props) {
   return (
     <StyledPopup
       trigger={<StyledButton> Add Recipe </StyledButton>}
@@ -22,7 +22,7 @@ function AddRecipe() {
         <StyledModal>
           <StyledHeader> New Recipe </StyledHeader>
           <StyledContent>
-            <FormPost closeForm={close} />
+            <FormPost closeForm={close} onSaveRecipe={props.onAddRecipe} />
           </StyledContent>
         </StyledModal>
       )}

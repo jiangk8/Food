@@ -1,18 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { QueryClient, QueryClientProvider } from "react-query";
 
-const queryClient = new QueryClient();
+const client = new ApolloClient({
+  uri: "https://api-us-west-2.hygraph.com/v2/clbvxfsuy42y401usdso05d8l/master",
+  cache: new InMemoryCache(),
+});
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
+    <ApolloProvider client={client}>
       <App />
-    </QueryClientProvider>
+    </ApolloProvider>
   </React.StrictMode>
 );
 

@@ -5,42 +5,29 @@ import Form, {
   SubmitButton,
   FormActions,
 } from "react-form-component";
-import { useMutation } from "react-query";
-import CreateRecipe from "./createRecipe.gql";
-import { GraphQLClient, gql, request } from "graphql-request";
+import CREATE_RECIPE from "./createRecipe.js";
+import { useMutation } from "@apollo/client";
 
 import { CancelButton } from "./styled-components";
 
-const MUTATION = gql`
-  mutation CreateRecipe(
-    $title: String!
-    $ingredients: [String!]
-    $notes: String
-  ) {
-    createRecipe(
-      data: { title: $title, ingredients: $ingredients, notes: $notes }
-    ) {
-      id
-      title
-    }
-  }
-`;
-
-const API_URL =
-  "https://api-us-west-2.hygraph.com/v2/clbvxfsuy42y401usdso05d8l/master";
-
 function FormPost(props) {
-  const { mutate } = useMutation(CreateRecipe, () => {
-    return request(API_URL, MUTATION);
-  });
+  const [createRecipe] = useMutation(CREATE_RECIPE);
 
   const handleSubmit = (fields) => {
-    request(API_URL, MUTATION, {
+    createRecipe({
+      variables: {
+        title: fields.title,
+        ingredients: [fields.ingredients],
+        notes: fields.notes,
+      },
+    });
+
+    props.closeForm();
+    props.onSaveRecipe({
       title: fields.title,
       ingredients: [fields.ingredients],
       notes: fields.notes,
     });
-    props.closeForm();
   };
 
   return (

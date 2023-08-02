@@ -1,5 +1,0 @@
-mutation CreateRecipe($title: string, $ingredients: string) {
-  createRecipe(data: { title: $title, ingredients: $ingredients }) {
-    id
-  }
-}
