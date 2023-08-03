@@ -7,7 +7,6 @@ import {
   StyledModal,
   StyledHeader,
   StyledContent,
-  StyledClose,
 } from "./styled-components";
 import FormPost from "../FormPost/FormPost";
 
@@ -22,7 +21,7 @@ function AddRecipe(props) {
         <StyledModal>
           <StyledHeader> New Recipe </StyledHeader>
           <StyledContent>
-            <FormPost closeForm={close} onSaveRecipe={props.onAddRecipe} />
+            <FormPost closeForm={close} />
           </StyledContent>
         </StyledModal>
       )}

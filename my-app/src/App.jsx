@@ -1,5 +1,4 @@
 import "./App.css";
-import { useState, useEffect } from "react";
 import FlipCard from "./Components/FlipCard/flipCard";
 import { Row, Container, Header } from "./styled-components";
 
@@ -19,21 +18,6 @@ export function App() {
     fetchPolicy: "network-only",
   });
 
-  const [recipes, setRecipes] = useState();
-  console.log(recipes, "cool");
-
-  const addRecipeHandler = (recipe) => {
-    //setRecipes(data);
-    /*
-    setRecipes((prevRecipes) => {
-      return [...prevRecipes, recipe];
-    });*/
-  };
-
-  useEffect(() => {
-    setRecipes(data?.recipes);
-  }, [data]);
-
   return (
     <>
       {isLoading ? (
@@ -43,7 +27,7 @@ export function App() {
           <Header>
             <SearchBar />
             <FormThemeProvider>
-              <AddRecipe onAddRecipe={addRecipeHandler} />
+              <AddRecipe />
             </FormThemeProvider>
           </Header>
           <Row>

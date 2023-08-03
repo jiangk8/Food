@@ -26,11 +26,6 @@ function FormPost(props) {
     });
 
     props.closeForm();
-    props.onSaveRecipe({
-      title: fields.title,
-      ingredients: [fields.ingredients],
-      notes: fields.notes,
-    });
   };
 
   return (
