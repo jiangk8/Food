@@ -47,7 +47,7 @@ export function App() {
             </FormThemeProvider>
           </Header>
           <Row>
-            {recipes?.map((recipe) => (
+            {data?.recipes?.map((recipe) => (
               <FlipCard key={recipe.id} card={recipe} />
             ))}
           </Row>

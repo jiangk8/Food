@@ -5,9 +5,10 @@ export const StyledButton = styled.button`
   width: 100px;
   background-color: white;
   border-radius: 4px;
+  border-width: 1px;
   &:hover {
     background-color: #2f4f4f;
-    border: 2px solid #2f4f4f;
+    border: 1px solid #2f4f4f;
     color: #fffff0;
   }
   &:active {

@@ -6,12 +6,15 @@ import Form, {
   FormActions,
 } from "react-form-component";
 import CREATE_RECIPE from "./createRecipe.js";
+import GET_RECIPES from "../../queries/allRecipes.js";
 import { useMutation } from "@apollo/client";
 
 import { CancelButton } from "./styled-components";
 
 function FormPost(props) {
-  const [createRecipe] = useMutation(CREATE_RECIPE);
+  const [createRecipe] = useMutation(CREATE_RECIPE, {
+    refetchQueries: [{ query: GET_RECIPES }],
+  });
 
   const handleSubmit = (fields) => {
     createRecipe({
