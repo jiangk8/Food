@@ -12,9 +12,9 @@ export const Row = styled.div`
   justify-items: center;
 `;
 
-export const Header = styled.div`
+export const Navigation = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 6vh 0vh 3vh;
+  margin: 1vh 0vh 3vh;
 `;

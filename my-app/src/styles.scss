@@ -32,13 +32,13 @@ body {
   
       &.front {
         transform: rotateY(0);
-        background-color: #2D4356;
-        color: #fff;
+        background-color: #2f3e46;
+        color: #ffffff;
       }
   
       &.back {
         transform: rotateY(180deg);
-        background-color: #9cb5a0;
+        background-color: #84a98c;
         color: #fefdfd;
         overflow-y: auto;
         white-space: pre-line;

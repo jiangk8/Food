@@ -20,7 +20,7 @@ function FormPost(props) {
     createRecipe({
       variables: {
         title: fields.title,
-        ingredients: [fields.ingredients],
+        ingredients: fields.ingredients.toLowerCase().split(", "),
         notes: fields.notes,
       },
     });

@@ -1,12 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
+import { useLazyQuery } from "@apollo/client";
+import SEARCH_RECIPES from "./searchRecipes";
 import { StyledSearchBar, StyledInput } from "./styled-components";
 
-function SearchBar() {
-  const [updated, setUpdated] = useState("");
+function SearchBar(props) {
+  const [searchRecipes, { data, isLoading }] = useLazyQuery(SEARCH_RECIPES, {
+    fetchPolicy: "network-only",
+    onCompleted: (data) => {
+      props.setDisplayedData(data?.recipes);
+    },
+  });
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
-      setUpdated(event.target.value);
+      searchRecipes({
+        variables: {
+          ingredients: event.target.value.toLowerCase().split(", "),
+        },
+      });
     }
   };
 
@@ -16,7 +27,7 @@ function SearchBar() {
         type='text'
         id='message'
         name='message'
-        placeholder='  search...'
+        placeholder='search...'
         onKeyDown={handleKeyDown}
       />
     </StyledSearchBar>
@@ -24,14 +35,3 @@ function SearchBar() {
 }
 
 export default SearchBar;
-
-// query recipe {
-//   recipes(
-//     where: {ingredients_contains_some: ["ginger", "lamb"]}
-//     orderBy: title_ASC
-//   ) {
-//     ingredients
-//     notes
-//     title
-//   }
-// }

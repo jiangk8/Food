@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledSearchBar = styled.div`
-  margin: 5px;
+  margin-bottom: 10px;
 `;
 
 export const StyledInput = styled.input`
@@ -9,4 +9,6 @@ export const StyledInput = styled.input`
   border-width: 1px;
   border-radius: 4px;
   width: 500px;
+  height: 30px;
+  padding-left: 10px;
 `;
