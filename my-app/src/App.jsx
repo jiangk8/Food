@@ -38,7 +38,6 @@ export function App() {
             <SearchBar setDisplayedData={setDisplayedData} />
             <FormThemeProvider>
               <AddRecipe />
-              <EditRecipe />
             </FormThemeProvider>
           </Navigation>
           <Row>

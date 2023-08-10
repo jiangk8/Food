@@ -16,7 +16,14 @@ function EditRecipe(props) {
         <StyledModal>
           <StyledHeader> Edit Recipe </StyledHeader>
           <StyledContent>
-            <FormPost closeForm={close} edit={true} recipeId={props.recipeId} />
+            <FormPost
+              closeForm={close}
+              edit={true}
+              recipeId={props.recipeId}
+              recipeTitle={props.recipeTitle}
+              recipeIngredients={props.recipeIngredients}
+              recipeNotes={props.recipeNotes}
+            />
           </StyledContent>
         </StyledModal>
       )}

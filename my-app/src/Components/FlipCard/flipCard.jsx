@@ -28,7 +28,12 @@ function FlipCard({ card }) {
         </div>
         <div className='card back'>
           <FormThemeProvider>
-            <EditRecipe recipeId={card.id} />
+            <EditRecipe
+              recipeId={card.id}
+              recipeTitle={card.title}
+              recipeIngredients={card.ingredients}
+              recipeNotes={card.notes}
+            />
           </FormThemeProvider>
           <div
             className='card-body d-flex flex-column justify-content-left '

@@ -49,13 +49,23 @@ function FormPost(props) {
       fields={["title", "ingredients", "notes"]}
       mandatory={["title", "ingredients"]}
     >
-      <Input name='title' label='Title' />
+      <Input
+        name='title'
+        label='Title'
+        initialValue={props.edit && props.recipeTitle}
+      />
       <Input
         name='ingredients'
         label='Ingredients'
         placeholder='Separate ingredients with a comma'
+        initialValue={props.edit && props.recipeIngredients}
       />
-      <TextArea name='notes' label='Notes' rows='5' />
+      <TextArea
+        name='notes'
+        label='Notes'
+        rows='5'
+        initialValue={props.edit && props.recipeNotes}
+      />
       <FormActions align='left'>
         <SubmitButton onClick={(fields) => handleSubmit(fields)}>
           Save
