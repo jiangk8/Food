@@ -6,24 +6,40 @@ import Form, {
   FormActions,
 } from "react-form-component";
 import CREATE_RECIPE from "./createRecipe.js";
+import UPDATE_RECIPE from "./updateRecipe.js";
 import GET_RECIPES from "../../queries/allRecipes.js";
 import { useMutation } from "@apollo/client";
 
-import { CancelButton } from "./styled-components";
+import { CancelButton, DeleteButton } from "./styled-components";
 
 function FormPost(props) {
   const [createRecipe] = useMutation(CREATE_RECIPE, {
     refetchQueries: [{ query: GET_RECIPES }],
   });
 
+  const [updateRecipe] = useMutation(UPDATE_RECIPE, {
+    refetchQueries: [{ query: GET_RECIPES }],
+  });
+
   const handleSubmit = (fields) => {
-    createRecipe({
-      variables: {
-        title: fields.title,
-        ingredients: fields.ingredients.toLowerCase().split(", "),
-        notes: fields.notes,
-      },
-    });
+    if (props.edit) {
+      updateRecipe({
+        variables: {
+          title: fields.title,
+          ingredients: fields.ingredients.toLowerCase().split(", "),
+          notes: fields.notes,
+          id: props.recipeId,
+        },
+      });
+    } else {
+      createRecipe({
+        variables: {
+          title: fields.title,
+          ingredients: fields.ingredients.toLowerCase().split(", "),
+          notes: fields.notes,
+        },
+      });
+    }
 
     props.closeForm();
   };
@@ -45,6 +61,7 @@ function FormPost(props) {
           Save
         </SubmitButton>
         <CancelButton onClick={props.closeForm}>Cancel</CancelButton>
+        {props.edit && <DeleteButton>Delete</DeleteButton>}
       </FormActions>
     </Form>
   );

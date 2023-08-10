@@ -8,6 +8,7 @@ import { useQuery } from "@apollo/client";
 import AddRecipe from "./Components/AddRecipe/AddRecipe";
 import SearchBar from "./Components/SearchBar/SearchBar";
 import Header from "./Components/Header/Header";
+import EditRecipe from "./Components/Edit/EditRecipe";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles.scss";
@@ -37,6 +38,7 @@ export function App() {
             <SearchBar setDisplayedData={setDisplayedData} />
             <FormThemeProvider>
               <AddRecipe />
+              <EditRecipe />
             </FormThemeProvider>
           </Navigation>
           <Row>

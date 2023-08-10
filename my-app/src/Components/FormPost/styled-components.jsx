@@ -14,3 +14,18 @@ export const CancelButton = styled.button`
     background-color: #217ee7;
   }
 `;
+
+export const DeleteButton = styled.button`
+  background-color: #f01111;
+  border: none;
+  color: white;
+  padding: 0px 20px;
+  line-height: 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  &:hover {
+    background-color: #f04646;
+  }
+`;
