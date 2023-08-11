@@ -27,25 +27,38 @@ function FormPost(props) {
   });
 
   const handleSubmit = (fields) => {
+    let ingredientsArray = [];
+    let title = fields.title;
+    let notes = fields.notes;
+    console.log(fields, "fields");
+    if (props.edit && Array.isArray(fields.ingredients)) {
+      ingredientsArray = props.recipeIngredients;
+    } else {
+      ingredientsArray = fields.ingredients.toLowerCase().split(",");
+      ingredientsArray = ingredientsArray.map((string) => string.trim());
+    }
+
     if (props.edit) {
+      console.log(notes, "edit ingredients");
       updateRecipe({
         variables: {
-          title: fields.title,
-          ingredients: fields.ingredients.toLowerCase().split(", "),
-          notes: fields.notes,
+          title: title,
+          ingredients: ingredientsArray,
+          notes: notes,
           id: props.recipeId,
         },
       });
     } else {
+      console.log(ingredientsArray, " create ingredients");
       createRecipe({
         variables: {
-          title: fields.title,
-          ingredients: fields.ingredients.toLowerCase().split(", "),
-          notes: fields.notes,
+          title: title,
+          ingredients: ingredientsArray,
+          notes: notes,
         },
       });
     }
-
+    console.log(props.edit, "edit status");
     props.closeForm();
   };
 
