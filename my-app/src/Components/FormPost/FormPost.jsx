@@ -7,6 +7,7 @@ import Form, {
 } from "react-form-component";
 import CREATE_RECIPE from "./createRecipe.js";
 import UPDATE_RECIPE from "./updateRecipe.js";
+import DELETE_RECIPE from "./deleteRecipe.js";
 import GET_RECIPES from "../../queries/allRecipes.js";
 import { useMutation } from "@apollo/client";
 
@@ -18,6 +19,10 @@ function FormPost(props) {
   });
 
   const [updateRecipe] = useMutation(UPDATE_RECIPE, {
+    refetchQueries: [{ query: GET_RECIPES }],
+  });
+
+  const [deleteRecipe] = useMutation(DELETE_RECIPE, {
     refetchQueries: [{ query: GET_RECIPES }],
   });
 
@@ -41,6 +46,11 @@ function FormPost(props) {
       });
     }
 
+    props.closeForm();
+  };
+
+  const handleDelete = () => {
+    deleteRecipe({ variables: { id: props.recipeId } });
     props.closeForm();
   };
 
@@ -71,7 +81,9 @@ function FormPost(props) {
           Save
         </SubmitButton>
         <CancelButton onClick={props.closeForm}>Cancel</CancelButton>
-        {props.edit && <DeleteButton>Delete</DeleteButton>}
+        {props.edit && (
+          <DeleteButton onClick={handleDelete}>Delete</DeleteButton>
+        )}
       </FormActions>
     </Form>
   );
